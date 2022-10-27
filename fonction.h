@@ -10,4 +10,5 @@ typedef struct s_tree
     p_node root;
 } t_tree, *p_tree;
 t_tree createEmptyTree();
+int numberline(FILE * file);
 #endif //PROJETDICTIONNAIRE_FONCTION_H
