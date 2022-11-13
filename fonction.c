@@ -1,11 +1,21 @@
-//
-// Created by robin on 08/11/2022.
-//
 #include "fonction.h"
 t_tree createTree(){
     t_tree t;
     t.root = createNode('0', 0, -1, "");
     return t;
+}
+int numberline(FILE * file){
+    int count = 0;
+    char f;
+    f = fgetc(file);
+    while(f != EOF )
+    {
+        f = fgetc(file);
+        if(f == '\n'){
+            count++;
+        }
+    }
+    return count;
 }
 
 void Comparaison(p_node t, char *racine, int recursive, char *mot){
