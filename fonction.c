@@ -6,7 +6,7 @@ t_tree createTree(){
 }
 int numberline(FILE * file){
     int count = 0;
-    char f;
+    int f;
     f = fgetc(file);
     while(f != EOF )
     {

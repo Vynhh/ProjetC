@@ -1,6 +1,3 @@
-//
-// Created by robin on 27/10/2022.
-//
 #include "node.h"
 
 liste creerMaillonFin(liste L, char *mot){
