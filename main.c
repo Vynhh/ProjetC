@@ -81,7 +81,7 @@ int main() {
     while(((fscanf(file, "%s\t%s\t%s :%s\n", mot, racine, nature, NonDeter)) != EOF) && (i != rdm1)){
         i = i+1;
         if ((strcmp(nature, "Ver") == 0) && (i == rdm1)){
-            printf("%s ", racine);
+            printf("%s ", mot);
         }
         else if((strcmp(nature, "Ver") != 0) && (i == rdm1)){
             rewind(file);
