@@ -5,7 +5,7 @@
 int main() {
     // dÃ©claration des variables
     t_tree adv, adj, nom, ver;
-    int ficL = 0, rdm, rdm1, rdm2, rdm3, i = 0;
+    int ficL = 0, choix = 0, i = 0;
     char nature[LONG] = "";
     char racine[LONG] = "";
     char mot[LONG] = "";
@@ -40,73 +40,29 @@ int main() {
             Comparaison(adv.root, racine, 0, mot);
         }
     }
+
+    // interaction avec l'utilisateur
     srand(time(NULL));
-
-    rdm = rand() % ficL + 1;
-    rewind(file);
-    i = 0;
-    while(((fscanf(file, "%s\t%s\t%s :%s\n", mot, racine, nature, NonDeter)) != EOF) && (i != rdm)){
-        i = i+1;
-        if ((strcmp(nature, "Nom") == 0) && (i == rdm)){
-            printf("un %s ", mot);
-
+    while (choix < 1 || choix > 2) {
+        printf("Quel modele voulez-vous afficher ? (1 ou 2) :");
+        scanf("%d", &choix);
+        if (choix == 1) {
+            printf("Modele 1 : ");
+            rdmNom(file, ficL);
+            rdmAdj(file, ficL);
+            rdmVer(file, ficL);
+            rdmNom(file, ficL);
         }
-        else if((strcmp(nature, "Nom") != 0) && (i == rdm)){
-            rewind(file);
-            i = 0;
-            rdm = rand() % ficL + 1;
-        }
-    }
-
-
-    rewind(file);
-    i = 0;
-    rdm3 = rand() % ficL + 1;
-    while(((fscanf(file, "%s\t%s\t%s :%s\n", mot, racine, nature, NonDeter)) != EOF) && (i != rdm3)){
-        i = i+1;
-        if ((strcmp(nature, "Adj") == 0) && (i == rdm3)){
-            printf("%s ", mot);
-        }
-        else if((strcmp(nature, "Adj") != 0) && (i == rdm3)){
-            rewind(file);
-            i = 0;
-            rdm3 = rand() % ficL + 1;
+        if (choix == 2) {
+            printf("Modele 2 : ");
+            rdmNom(file, ficL);
+            printf("qui ");
+            rdmVer(file, ficL);
+            rdmVer(file, ficL);
+            rdmNom(file, ficL);
+            rdmAdj(file, ficL);
         }
     }
-
-
-    rewind(file);
-    i = 0;
-    rdm1 = rand() % ficL + 1;
-    while(((fscanf(file, "%s\t%s\t%s :%s\n", mot, racine, nature, NonDeter)) != EOF) && (i != rdm1)){
-        i = i+1;
-        if ((strcmp(nature, "Ver") == 0) && (i == rdm1)){
-            printf("%s ", mot);
-        }
-        else if((strcmp(nature, "Ver") != 0) && (i == rdm1)){
-            rewind(file);
-            i = 0;
-            rdm1 = rand() % ficL + 1;
-        }
-    }
-
-
-    rewind(file);
-    i = 0;
-    rdm2 = rand() % ficL + 1;
-    while(((fscanf(file, "%s\t%s\t%s :%s\n", mot, racine, nature, NonDeter)) != EOF) && (i != rdm2)){
-        i = i+1;
-        if ((strcmp(nature, "Nom") == 0) && (i == rdm2)){
-            printf("un %s ", mot);
-        }
-        else if((strcmp(nature, "Nom") != 0) && (i == rdm2)){
-            rewind(file);
-            i = 0;
-            rdm2 = rand() % ficL + 1;
-        }
-    }
-
-
     fclose(file);
     return 0;
 }

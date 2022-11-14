@@ -459,3 +459,69 @@ void displayTree(p_node t){
         displayTree(t->z);
     }
 }
+
+void rdmNom(FILE *file, int ficL){
+    int i, rdm = 0;
+    char nature[40] = "";
+    char racine[40] = "";
+    char mot[40] = "";
+    char NonDeter[40] = "";
+    rdm = rand() % ficL + 1;
+    rewind(file);
+    i = 0;
+    while(((fscanf(file, "%s\t%s\t%s :%s\n", mot, racine, nature, NonDeter)) != EOF) && (i != rdm)){
+        i = i+1;
+        if ((strcmp(nature, "Nom") == 0) && (i == rdm)){
+            printf("un %s ", mot);
+        }
+        else if((strcmp(nature, "Nom") != 0) && (i == rdm)){
+            rewind(file);
+            i = 0;
+            rdm = rand() % ficL + 1;
+        }
+    }
+}
+
+void rdmAdj(FILE *file, int ficL){
+    int i, rdm = 0;
+    char nature[40] = "";
+    char racine[40] = "";
+    char mot[40] = "";
+    char NonDeter[40] = "";
+    rdm = rand() % ficL + 1;
+    rewind(file);
+    i = 0;
+    while(((fscanf(file, "%s\t%s\t%s :%s\n", mot, racine, nature, NonDeter)) != EOF) && (i != rdm)){
+        i = i+1;
+        if ((strcmp(nature, "Adj") == 0) && (i == rdm)){
+            printf("%s ", mot);
+        }
+        else if((strcmp(nature, "Adj") != 0) && (i == rdm)){
+            rewind(file);
+            i = 0;
+            rdm = rand() % ficL + 1;
+        }
+    }
+}
+
+void rdmVer(FILE *file, int ficL){
+    int i, rdm = 0;
+    char nature[40] = "";
+    char racine[40] = "";
+    char mot[40] = "";
+    char NonDeter[40] = "";
+    rdm = rand() % ficL + 1;
+    rewind(file);
+    i = 0;
+    while(((fscanf(file, "%s\t%s\t%s :%s\n", mot, racine, nature, NonDeter)) != EOF) && (i != rdm)){
+        i = i+1;
+        if ((strcmp(nature, "Ver") == 0) && (i == rdm)){
+            printf("%s ", mot);
+        }
+        else if((strcmp(nature, "Ver") != 0) && (i == rdm)){
+            rewind(file);
+            i = 0;
+            rdm = rand() % ficL + 1;
+        }
+    }
+}
