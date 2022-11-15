@@ -40,11 +40,13 @@ int main() {
             Comparaison(adv.root, racine, 0, mot);
         }
     }
+    //displayTree(nom.root);
+    //displayListe(ver.root->s->t->a->b->i->l->i->s->e->r->lmot);
 
     // interaction avec l'utilisateur
     srand(time(NULL));
-    while (choix < 1 || choix > 2) {
-        printf("Quel modele voulez-vous afficher ? (1 ou 2) :");
+    while (choix < 1 || choix > 3) {
+        printf("Quel modele voulez-vous afficher ? (1 ou 2 ou 3) :");
         scanf("%d", &choix);
         if (choix == 1) {
             printf("Modele 1 : ");
@@ -61,6 +63,13 @@ int main() {
             rdmVer(file, ficL);
             rdmNom(file, ficL);
             rdmAdj(file, ficL);
+        }
+        if (choix == 3){
+            printf("Modele 3 : ");
+            rdmNom(file, ficL);
+            rdmAdj(file, ficL);
+            rdmVer(file, ficL);
+            rdmAdv(file, ficL);
         }
     }
     fclose(file);

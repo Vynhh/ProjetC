@@ -14,4 +14,5 @@ int numberline(FILE *file);
 void rdmNom(FILE *, int);
 void rdmAdj(FILE *, int);
 void rdmVer(FILE *, int);
+void rdmAdv(FILE *, int );
 #endif //PROJETDICTIONNAIRE_FONCTION_H
